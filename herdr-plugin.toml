@@ -1,0 +1,29 @@
+id = "herdr.runnables"
+name = "Runnables"
+version = "0.1.0"  # x-release-please-version
+min_herdr_version = "0.7.0"
+description = "Discover and run project commands from package.json, composer.json, and other idiomatic files."
+platforms = ["linux", "macos"]
+
+[[build]]
+command = ["cargo", "build", "--release"]
+
+[[actions]]
+id = "pick"
+title = "Pick runnable"
+contexts = ["workspace"]
+command = ["./target/release/herdr-runnables"]
+
+[[actions]]
+id = "run-default"
+title = "Run default runnable"
+contexts = ["workspace"]
+command = ["./target/release/herdr-runnables"]
+
+[[panes]]
+id = "picker"
+title = "Pick runnable"
+placement = "popup"
+width = "80%"
+height = "50%"
+command = ["./target/release/herdr-runnables"]
