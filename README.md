@@ -9,6 +9,10 @@ A [Herdr](https://herdr.dev) plugin that discovers project run commands from idi
 - Press `prefix + R` to run the project's default command.
 - Press `Ctrl + D` in the picker (or answer `y` in the fallback prompt) to mark a command as the default.
 
+## Demo
+
+![Popup picker showing discovered runnables from package.json](assets/picker-demo.png)
+
 ## Supported config files
 
 | File | Extracted commands |

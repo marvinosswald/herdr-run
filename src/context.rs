@@ -164,7 +164,10 @@ mod tests {
     #[test]
     fn project_cwd_falls_back_to_workspace_object() {
         with_clean_env(|| {
-            env::set_var("HERDR_PLUGIN_CONTEXT_JSON", r#"{"workspace":{"cwd":"/nested"}}"#);
+            env::set_var(
+                "HERDR_PLUGIN_CONTEXT_JSON",
+                r#"{"workspace":{"cwd":"/nested"}}"#,
+            );
             assert_eq!(project_cwd().unwrap(), PathBuf::from("/nested"));
         });
     }
@@ -188,10 +191,7 @@ mod tests {
 
         let sub = dir.path().join("sub");
         std::fs::create_dir(&sub).unwrap();
-        assert_eq!(
-            git_root(&sub).unwrap(),
-            dir.path().canonicalize().unwrap()
-        );
+        assert_eq!(git_root(&sub).unwrap(), dir.path().canonicalize().unwrap());
     }
 
     #[test]
