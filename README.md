@@ -1,4 +1,4 @@
-# herdr-runnables
+# herdr-run
 
 A [Herdr](https://herdr.dev) plugin that discovers project run commands from idiomatic config files and opens them in a new tab.
 
@@ -27,10 +27,31 @@ A [Herdr](https://herdr.dev) plugin that discovers project run commands from idi
 
 The target registry is trait-based, so adding another language/framework is a small module plus one line in the registry.
 
+## Installation
+
+Install [Herdr](https://herdr.dev) if it is not already available:
+
+```bash
+curl -fsSL https://herdr.dev/install.sh | sh
+```
+
+Then install the plugin from GitHub:
+
+```bash
+herdr plugin install marvinosswald/herdr-run
+```
+
+Verify that the plugin and its actions are registered:
+
+```bash
+herdr plugin list
+herdr plugin action list --plugin herdr-run
+```
+
 ## Requirements
 
 - [Herdr](https://herdr.dev) 0.7.0+
-- [Rust](https://rustup.rs) toolchain (to build locally)
+- [Rust](https://rustup.rs) toolchain (required to build the plugin)
 - [fzf](https://junegunn.github.io/fzf/) is strongly recommended for the popup picker. Without it, a simple numbered fallback prompt is used.
 
 ## Local development
@@ -43,7 +64,7 @@ cargo build --release
 herdr plugin link .
 
 # 3. Verify the actions are registered
-herdr plugin action list --plugin herdr.runnables
+herdr plugin action list --plugin herdr-run
 ```
 
 ## Keybindings
@@ -54,13 +75,13 @@ Add these entries to your Herdr config (e.g. `~/.config/herdr/config.toml`):
 [[keys.command]]
 key = "prefix+shift+r"
 type = "plugin_action"
-command = "herdr.runnables.pick"
+command = "herdr-run.pick"
 description = "pick runnable"
 
 [[keys.command]]
 key = "prefix+r"
 type = "plugin_action"
-command = "herdr.runnables.run-default"
+command = "herdr-run.run-default"
 description = "run default runnable"
 ```
 

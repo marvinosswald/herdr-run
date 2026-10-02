@@ -21,7 +21,7 @@ pub fn pick() -> Result<()> {
             "pane",
             "open",
             "--plugin",
-            "herdr.runnables",
+            "herdr-run",
             "--entrypoint",
             "picker",
             "--env",
